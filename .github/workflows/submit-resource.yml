@@ -72,7 +72,7 @@ jobs:
 
             - **仓库**: [${{ steps.process.outputs.repo }}](https://github.com/${{ steps.process.outputs.repo }})
             - **类型**: ${{ steps.process.outputs.types }}
-            - **提交人**: @${{ github.event.issue.user.login }}
+            - **提交人**: @${{ steps.process.outputs.issue_author }}
             - **原 Issue**: #${{ github.event.issue.number || github.event.inputs.issue_number }}
 
             ${{ steps.process.outputs.duplicate_note }}
