@@ -84,9 +84,6 @@ jobs:
             ### 描述
 
             ${{ steps.process.outputs.description }}
-
-            ---
-            此 PR 由 GitHub Actions 自动创建,合入后将自动关闭对应 Issue。
           delete-branch: true
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>

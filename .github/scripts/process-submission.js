@@ -290,6 +290,7 @@ function buildReadme(meta) {
   const descZh = meta.description_zh || '';
   const descEn = meta.description_en || '';
   const license = meta.license ? `\`${meta.license}\`` : '未声明';
+  const starsBadge = `[![GitHub stars](https://img.shields.io/github/stars/${meta.owner}/${meta.repo}?style=social)](https://github.com/${meta.owner}/${meta.repo})`;
   return `# ${meta.owner}/${meta.repo}
 
 > ${descZh || descEn || '_暂无描述_'}
@@ -298,12 +299,26 @@ function buildReadme(meta) {
 |---|---|
 | 类型 | ${typeLine} |
 | 仓库 | <https://github.com/${meta.owner}/${meta.repo}> |
-| Stars | ⭐ ${meta.stars} |
+| Stars | ⭐ ${formatStars(meta.stars)} (${meta.stars || 0}) |
 | License | ${license} |
 | 收录于 | Issue #${meta.added_via_issue}${meta.last_updated_via_issue ? ` · 更新于 Issue #${meta.last_updated_via_issue}` : ''} |
 
+${starsBadge}
+
 ${descEn ? `## English Description\n\n> ${descEn}\n\n` : ''}${tagBadges ? `## 标签\n\n${tagBadges}\n` : ''}
 `;
+}
+
+// 把整数格式化为紧凑形式:1234 -> "1.2k", 208646 -> "208.6k", 1500000 -> "1.5M"
+function formatStars(n) {
+  const num = Number(n) || 0;
+  if (num >= 1_000_000) {
+    return `${(num / 1_000_000).toFixed(1)}M`;
+  }
+  if (num >= 1_000) {
+    return `${(num / 1_000).toFixed(1)}k`;
+  }
+  return String(num);
 }
 
 // ---------- 7. Write artifacts ----------
@@ -366,48 +381,39 @@ function loadAllMeta() {
 }
 
 function renderEntryLine(meta, lang) {
+  // 表格行:项目(超链接) | 描述 | 类型 | Stars(格式化 + 图标)
   const desc = (lang === 'en' ? (meta.description_en || meta.description_zh) : (meta.description_zh || meta.description_en)) || '';
-  const tagsAll = Array.from(new Set([
-    ...(meta.tags || []),
-    ...(meta.topics || []),
-  ])).filter(Boolean).slice(0, MAX_TAGS_DISPLAY);
-  const tagLine = tagsAll.length > 0 ? tagsAll.map(t => `\`${t}\``).join(' ') : '';
-  const title = `**[${meta.owner}/${meta.repo}](https://github.com/${meta.owner}/${meta.repo})** ⭐ ${meta.stars || 0}`;
-  const lines = [];
-  lines.push(`- ${title}`);
-  if (desc) lines.push(`  > ${desc.replace(/\n/g, ' ').slice(0, 200)}`);
-  if (tagLine) lines.push(`  ${tagLine}`);
-  return lines.join('\n');
+  // 表格中管道符与换行要转义,避免破坏表格
+  const descSafe = desc.replace(/\|/g, '\\|').replace(/\r?\n/g, ' ').slice(0, 200);
+  const descCell = descSafe || (lang === 'en' ? '_(no description)_' : '_(暂无描述)_');
+  const types = (meta.types && meta.types.length > 0) ? meta.types.join(', ') : '—';
+  const url = `https://github.com/${meta.owner}/${meta.repo}`;
+  const project = `[${meta.owner}/${meta.repo}](${url})`;
+  const starsCell = `⭐ ${formatStars(meta.stars)} ![stars](https://img.shields.io/github/stars/${meta.owner}/${meta.repo}?style=social)`;
+  return `| ${project} | ${descCell} | ${types} | ${starsCell} |`;
 }
 
 function buildIndexBlock(lang) {
   const all = loadAllMeta();
-  const buckets = Object.fromEntries(TYPES.map(t => [t, []]));
-  for (const meta of all) {
-    for (const t of meta.types) {
-      if (buckets[t]) buckets[t].push(meta);
-    }
+  // 单一表格,按 stars 降序、同星按 added_at 降序
+  all.sort((a, b) => {
+    const s = (b.stars || 0) - (a.stars || 0);
+    if (s !== 0) return s;
+    return (b.added_at || '').localeCompare(a.added_at || '');
+  });
+  if (all.length === 0) {
+    return lang === 'en' ? '_No resources yet — submit the first one via a new issue!_' : '_(暂无,提交第一个 Issue 来收录你的资源吧!)_';
   }
-  for (const t of TYPES) {
-    buckets[t].sort((a, b) => {
-      const s = (b.stars || 0) - (a.stars || 0);
-      if (s !== 0) return s;
-      return (b.added_at || '').localeCompare(a.added_at || '');
-    });
-  }
-  const emptyZh = '_(暂无)_';
-  const emptyEn = '_(none yet)_';
   const lines = [];
-  for (const t of TYPES) {
-    lines.push(`## ${TYPE_HEADING[t]}`);
-    if (buckets[t].length === 0) {
-      lines.push(lang === 'en' ? emptyEn : emptyZh);
-    } else {
-      for (const meta of buckets[t]) {
-        lines.push(renderEntryLine(meta, lang));
-      }
-    }
-    lines.push('');
+  if (lang === 'en') {
+    lines.push('| Project | Description | Type | Stars |');
+    lines.push('|---|---|---|---|');
+  } else {
+    lines.push('| 项目 | 描述 | 类型 | Stars |');
+    lines.push('|---|---|---|---|');
+  }
+  for (const meta of all) {
+    lines.push(renderEntryLine(meta, lang));
   }
   return lines.join('\n');
 }
