@@ -57,10 +57,10 @@ jobs:
         with:
           branch: submission/issue-${{ github.event.issue.number || github.event.inputs.issue_number }}
           add-paths: |
-            Skill/**
-            Plugin/**
-            Workflow/**
-            Template/**
+            Skill
+            Plugin
+            Workflow
+            Template
             README.md
             README.en.md
           commit-message: "chore(submission): 收录 issue #${{ github.event.issue.number || github.event.inputs.issue_number }}"

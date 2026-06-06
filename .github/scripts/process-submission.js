@@ -318,6 +318,28 @@ function writeArtifacts({ types, owner, repo, meta, readme }) {
   }
 }
 
+// 为所有 4 个 type 目录创建占位 .gitkeep,确保目录被 git 跟踪
+// (create-pull-request 的 add-paths 在 pathspec 不存在时会 fatal)
+function ensureTypePlaceholders() {
+  for (const t of TYPES) {
+    const dir = t;
+    fs.mkdirSync(dir, { recursive: true });
+    // 目录中已有真实资源子目录时,不写入 .gitkeep(避免与真实文件并存造成混乱)
+    const entries = fs.readdirSync(dir);
+    const hasReal = entries.some(name => {
+      const full = path.join(dir, name);
+      const stat = fs.statSync(full);
+      return stat.isDirectory() && fs.existsSync(path.join(full, 'metadata.json'));
+    });
+    if (hasReal) continue;
+    const keep = path.join(dir, '.gitkeep');
+    if (!fs.existsSync(keep)) {
+      fs.writeFileSync(keep, '# 仅为占位,保证目录被 git 跟踪\n', 'utf8');
+      log(`created placeholder ${keep}`);
+    }
+  }
+}
+
 // ---------- 8. Regenerate README index ----------
 
 function loadAllMeta() {
@@ -512,6 +534,9 @@ async function main() {
 
   // 7. write artifacts
   writeArtifacts({ types: parsed.types, owner, repo, meta, readme });
+
+  // 7b. ensure all 4 type directories exist as tracked directories
+  ensureTypePlaceholders();
 
   // 8. regenerate index
   regenerateIndex({ readmePath: 'README.md', lang: 'zh' });
