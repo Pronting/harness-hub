@@ -7,19 +7,9 @@ A curated collection of open-source **Harness** resources, across four categorie
 ## Index
 
 <!-- harness-hub:index:start -->
-## Skill
-_(none yet)_
-
-## Plugin
-- **[affaan-m/ECC](https://github.com/affaan-m/ECC)** ⭐ 208646
-  > The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.
-  `_No response_` `ai-agents` `anthropic` `claude` `claude-code`
-
-## Workflow
-_(none yet)_
-
-## Template
-_(none yet)_
+| Project | Description | Type | Stars |
+|---|---|---|---|
+| [affaan-m/ECC](https://github.com/affaan-m/ECC) | The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond. | Plugin | ⭐ 208.7k ![stars](https://img.shields.io/github/stars/affaan-m/ECC?style=social) |
 <!-- harness-hub:index:end -->
 
 ## Categories
