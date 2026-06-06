@@ -449,9 +449,10 @@ async function main() {
   }
 
   // 1. parse
-  // 在 workflow_dispatch 模式下,env ISSUE_BODY 为空,需通过 gh issue view 拉取
+  // 在 workflow_dispatch 模式下,env ISSUE_BODY/ISSUE_AUTHOR 为空,需通过 gh issue view 拉取
   let issueBody = process.env.ISSUE_BODY;
-  if (!issueBody || !issueBody.trim()) {
+  let issueAuthor = process.env.ISSUE_AUTHOR;
+  if ((!issueBody || !issueBody.trim()) || !issueAuthor) {
     const issueNumber = process.env.ISSUE_NUMBER;
     if (!issueNumber) {
       fail('Issue body 为空且未提供 ISSUE_NUMBER,无法继续');
@@ -460,17 +461,24 @@ async function main() {
     try {
       const out = execFileSync('gh', [
         'issue', 'view', String(issueNumber),
-        '--json', 'body',
-        '--jq', '.body',
+        '--json', 'body,author',
+        '--jq', '{body: .body, author: .author.login}',
       ], {
         env: { ...process.env, GH_TOKEN: process.env.GH_TOKEN },
         encoding: 'utf8',
         stdio: ['pipe', 'pipe', 'pipe'],
       });
-      issueBody = out.trim();
-      log(`通过 gh issue view 拉取了 issue #${issueNumber} 的 body (${issueBody.length} 字符)`);
+      const obj = JSON.parse(out);
+      if (!issueBody || !issueBody.trim()) {
+        issueBody = String(obj.body || '').trim();
+        log(`通过 gh issue view 拉取了 issue #${issueNumber} 的 body (${issueBody.length} 字符)`);
+      }
+      if (!issueAuthor && obj.author) {
+        issueAuthor = String(obj.author);
+        log(`通过 gh issue view 拉取了 issue #${issueNumber} 的 author (${issueAuthor})`);
+      }
     } catch (e) {
-      fail(`拉取 issue #${issueNumber} body 失败: ${(e.stderr && e.stderr.toString()) || e.message}`);
+      fail(`拉取 issue #${issueNumber} 失败: ${(e.stderr && e.stderr.toString()) || e.message}`);
       return;
     }
   }
@@ -548,6 +556,7 @@ async function main() {
   const links = parsed.types.map(t => `- [${t}/${owner}-${repo}](./${t}/${owner}-${repo}/README.md)`).join('\n');
   appendOutput('links', links);
   appendOutput('description', parsed.description);
+  appendOutput('issue_author', issueAuthor || '');
   if (isUpdate) {
     appendOutput('duplicate_note', `> :arrows_counterclockwise: **本资源已被收录过**,本次将更新元数据(原 \`added_via_issue\` 保留为 \`#${dup[0].prev && dup[0].prev.added_via_issue}\`)。`);
   } else {
