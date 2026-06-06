@@ -1,5 +1,7 @@
 # Harness Hub
 
+🌐 **English version**: [README.en.md](./README.en.md)
+
 一个收录开源 Harness 框架相关资源的仓库,涵盖 **Skill / Plugin / Workflow / Template** 四类。
 
 > README 由 GitHub Actions 自动维护。开 [Issue](../../issues/new/choose) 即可提交一个开源资源,机器人会自动开 PR,审核合入后自动收录。
