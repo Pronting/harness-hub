@@ -427,9 +427,34 @@ async function main() {
   }
 
   // 1. parse
+  // 在 workflow_dispatch 模式下,env ISSUE_BODY 为空,需通过 gh issue view 拉取
+  let issueBody = process.env.ISSUE_BODY;
+  if (!issueBody || !issueBody.trim()) {
+    const issueNumber = process.env.ISSUE_NUMBER;
+    if (!issueNumber) {
+      fail('Issue body 为空且未提供 ISSUE_NUMBER,无法继续');
+      return;
+    }
+    try {
+      const out = execFileSync('gh', [
+        'issue', 'view', String(issueNumber),
+        '--json', 'body',
+        '--jq', '.body',
+      ], {
+        env: { ...process.env, GH_TOKEN: process.env.GH_TOKEN },
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'pipe'],
+      });
+      issueBody = out.trim();
+      log(`通过 gh issue view 拉取了 issue #${issueNumber} 的 body (${issueBody.length} 字符)`);
+    } catch (e) {
+      fail(`拉取 issue #${issueNumber} body 失败: ${(e.stderr && e.stderr.toString()) || e.message}`);
+      return;
+    }
+  }
   let parsed;
   try {
-    parsed = parseIssueBody(process.env.ISSUE_BODY);
+    parsed = parseIssueBody(issueBody);
   } catch (e) {
     fail(e.message);
     return;
