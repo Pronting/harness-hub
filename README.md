@@ -9,19 +9,9 @@
 ## 收录列表
 
 <!-- harness-hub:index:start -->
-## Skill
-_(暂无)_
-
-## Plugin
-- **[affaan-m/ECC](https://github.com/affaan-m/ECC)** ⭐ 208646
-  > 是一个经过实战检验的 Claude Code 工具增强套件, 形态上已经比较接近 harness 框架，内置 136 skills, 36个agent, 68个命令，若干hooks
-  `_No response_` `ai-agents` `anthropic` `claude` `claude-code`
-
-## Workflow
-_(暂无)_
-
-## Template
-_(暂无)_
+| 项目 | 描述 | 类型 | Stars |
+|---|---|---|---|
+| [affaan-m/ECC](https://github.com/affaan-m/ECC) | 是一个经过实战检验的 Claude Code 工具增强套件, 形态上已经比较接近 harness 框架，内置 136 skills, 36个agent, 68个命令，若干hooks | Plugin | ⭐ 208.7k ![stars](https://img.shields.io/github/stars/affaan-m/ECC?style=social) |
 <!-- harness-hub:index:end -->
 
 ## 分类

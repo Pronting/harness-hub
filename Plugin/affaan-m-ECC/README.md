@@ -6,9 +6,11 @@
 |---|---|
 | 类型 | `Plugin` |
 | 仓库 | <https://github.com/affaan-m/ECC> |
-| Stars | ⭐ 208646 |
+| Stars | ⭐ 208.7k (208662) |
 | License | `MIT` |
-| 收录于 | Issue #1 |
+| 收录于 | Issue #1 · 更新于 Issue #1 |
+
+[![GitHub stars](https://img.shields.io/github/stars/affaan-m/ECC?style=social)](https://github.com/affaan-m/ECC)
 
 ## English Description
 
