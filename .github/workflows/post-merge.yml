@@ -1,0 +1,63 @@
+name: Regenerate Index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Skill/**/metadata.json'
+      - 'Plugin/**/metadata.json'
+      - 'Workflow/**/metadata.json'
+      - 'Template/**/metadata.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: regen-index
+  cancel-in-progress: true
+
+jobs:
+  regen:
+    name: 重建 README 索引
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 设置 bot 身份
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: 重建索引
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/process-submission.js --regen-index
+
+      - name: 开 PR(若有变更)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/regenerate-index
+          add-paths: |
+            README.md
+            README.en.md
+          commit-message: "chore: regenerate harness-hub index"
+          title: "chore: regenerate index"
+          body: |
+            由 push to main 自动触发的索引重建。
+
+            - 触发原因:有 `metadata.json` 合入 main
+            - 此 PR 由 `post-merge.yml` 自动创建
+          delete-branch: true
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
