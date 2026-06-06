@@ -499,7 +499,7 @@ async function main() {
   appendOutput('links', links);
   appendOutput('description', parsed.description);
   if (isUpdate) {
-    appendOutput('duplicate_note', `> :arrows_counterclockwise: **本资源已被收录过**,本次将更新元数据(原 `added_via_issue` 保留为 \`#${dup[0].prev && dup[0].prev.added_via_issue}\`)。`);
+    appendOutput('duplicate_note', `> :arrows_counterclockwise: **本资源已被收录过**,本次将更新元数据(原 \`added_via_issue\` 保留为 \`#${dup[0].prev && dup[0].prev.added_via_issue}\`)。`);
   } else {
     appendOutput('duplicate_note', '');
   }
