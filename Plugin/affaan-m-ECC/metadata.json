@@ -1,0 +1,29 @@
+{
+  "owner": "affaan-m",
+  "repo": "ECC",
+  "url": "https://github.com/affaan-m/ECC",
+  "types": [
+    "Plugin"
+  ],
+  "source_name": "ECC",
+  "description_zh": "是一个经过实战检验的 Claude Code 工具增强套件, 形态上已经比较接近 harness 框架，内置 136 skills, 36个agent, 68个命令，若干hooks",
+  "description_en": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+  "tags": [
+    "_No response_"
+  ],
+  "stars": 208646,
+  "topics": [
+    "ai-agents",
+    "anthropic",
+    "claude",
+    "claude-code",
+    "developer-tools",
+    "llm",
+    "mcp",
+    "productivity"
+  ],
+  "license": "MIT",
+  "language": "JavaScript",
+  "added_via_issue": "1",
+  "added_at": "2026-06-06T08:53:45.240Z"
+}
