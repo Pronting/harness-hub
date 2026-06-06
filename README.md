@@ -12,6 +12,7 @@
 | 项目 | 描述 | 类型 | Stars |
 |---|---|---|---|
 | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 是一个经过实战检验的 Claude Code 工具增强套件, 形态上已经比较接近 harness 框架，内置 136 skills, 36个agent, 68个命令，若干hooks | Plugin | ⭐ 208.7k ![stars](https://img.shields.io/github/stars/affaan-m/ECC?style=social) |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 一个前端审美增强 Skill，通过系统化的 UI/UX 设计规则、布局约束、动效规范与 anti-slop 提示词，控制 AI 生成更高级、更具设计感、去模板化的前端界面输出 | Skill | ⭐ 34.5k ![stars](https://img.shields.io/github/stars/Leonxlnx/taste-skill?style=social) |
 <!-- harness-hub:index:end -->
 
 ## 分类
