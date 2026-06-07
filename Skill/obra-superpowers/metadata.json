@@ -1,0 +1,20 @@
+{
+  "owner": "obra",
+  "repo": "superpowers",
+  "url": "https://github.com/obra/superpowers",
+  "types": [
+    "Skill"
+  ],
+  "source_name": "superpowers",
+  "description_zh": "头脑风暴，tdd, sdd，安全测试，钩子这些贯穿软件开发流程的始终被抽象为skills供我们使用——一个通用vibe coding skills",
+  "description_en": "An agentic skills framework & software development methodology that works.",
+  "tags": [
+    "vibe coding"
+  ],
+  "stars": 219673,
+  "topics": [],
+  "license": "MIT",
+  "language": "Shell",
+  "added_via_issue": "8",
+  "added_at": "2026-06-07T01:31:51.855Z"
+}
