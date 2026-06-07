@@ -1,0 +1,20 @@
+{
+  "owner": "garrytan",
+  "repo": "gstack",
+  "url": "https://github.com/garrytan/gstack",
+  "types": [
+    "Workflow"
+  ],
+  "source_name": "gstack",
+  "description_zh": "Prompt + Tool + Workflow 的组合，通过 plan、review、QA、ship 等 skill，让 AI 分别扮演 Tech Lead、Reviewer、QA、安全审计等工程角色，一个完整的AI-native 开发流程跃然纸上",
+  "description_en": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
+  "tags": [
+    "workflow"
+  ],
+  "stars": 107813,
+  "topics": [],
+  "license": "MIT",
+  "language": "TypeScript",
+  "added_via_issue": "10",
+  "added_at": "2026-06-07T09:37:57.648Z"
+}
