@@ -13,6 +13,7 @@ A curated collection of open-source **Harness** resources, across four categorie
 | [affaan-m/ECC](https://github.com/affaan-m/ECC) | The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond. | Plugin | ⭐ 208.7k ![stars](https://img.shields.io/github/stars/affaan-m/ECC?style=social) |
 | [garrytan/gstack](https://github.com/garrytan/gstack) | Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA | Workflow | ⭐ 107.8k ![stars](https://img.shields.io/github/stars/garrytan/gstack?style=social) |
 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop  | Skill | ⭐ 34.5k ![stars](https://img.shields.io/github/stars/Leonxlnx/taste-skill?style=social) |
+| [Musenn/contrib-skill](https://github.com/Musenn/contrib-skill) | 代码贡献洞察与项目包装工具 \| Turn Git history into credible, background-check-safe resume material | Skill | ⭐ 3 ![stars](https://img.shields.io/github/stars/Musenn/contrib-skill?style=social) |
 <!-- harness-hub:index:end -->
 
 ## Categories

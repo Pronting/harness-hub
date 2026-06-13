@@ -1,0 +1,20 @@
+{
+  "owner": "Musenn",
+  "repo": "contrib-skill",
+  "url": "https://github.com/Musenn/contrib-skill",
+  "types": [
+    "Skill"
+  ],
+  "source_name": "contrib-skill",
+  "description_zh": "读你本地的 Git 仓库,把你真实做过的事还原出来,然后告诉你哪些能写进简历、哪些不能。不吹牛，不瞎编，讲证据",
+  "description_en": "代码贡献洞察与项目包装工具 | Turn Git history into credible, background-check-safe resume material",
+  "tags": [
+    "_No response_"
+  ],
+  "stars": 3,
+  "topics": [],
+  "license": null,
+  "language": "Python",
+  "added_via_issue": "13",
+  "added_at": "2026-06-13T04:09:50.429Z"
+}
