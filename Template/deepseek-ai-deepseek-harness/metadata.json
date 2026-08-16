@@ -1,0 +1,25 @@
+{
+  "owner": "deepseek-ai",
+  "repo": "deepseek-harness",
+  "url": "https://github.com/deepseek-ai/deepseek-harness",
+  "types": [
+    "Template"
+  ],
+  "source_name": "deepseek-harness",
+  "description_zh": "DeepSeek Harness（dsh）是由 [DeepSeek AI](https://deepseek.com/) 开发的开源 agent harness（智能体框架）。\n\n它采用一切皆插件的架构，并由 [Cordis](https://github.com/cordiverse/cordis) 驱动，其设计参见论文 [A Programming Paradigm for Spatiotemporal Composability](https://github.com/cordiverse/paper)。",
+  "description_en": "DeepSeek Harness: Everything is a Plugin.",
+  "tags": [
+    "harness"
+  ],
+  "stars": 106459,
+  "topics": [
+    "cordis",
+    "dsh",
+    "dsh-plugin",
+    "ai-agents"
+  ],
+  "license": "MIT",
+  "language": "TypeScript",
+  "added_via_issue": "15",
+  "added_at": "2026-08-15T11:05:42.902Z"
+}
