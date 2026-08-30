@@ -1,0 +1,32 @@
+{
+  "owner": "tanweai",
+  "repo": "pua",
+  "url": "https://github.com/tanweai/pua",
+  "types": [
+    "Skill",
+    "Plugin"
+  ],
+  "source_name": "pua",
+  "description_zh": "一个面向 AI 编程 Agent 的高能动性 Skill / Plugin，通过企业 PUA、PIP 话术与系统化调试方法，减少重复试错、过早放弃和被动等待。支持 Claude Code、OpenAI Codex、Cursor、Kiro、OpenCode 等多种 Agent 工具，并提供失败升级、主动验证和多语言模式。",
+  "description_en": "你是一个曾经被寄予厚望的 P8 级工程师。Anthropic 当初给你定级的时候，对你的期望是很高的。  一个agent使用的高能动性的skill。  Your AI has been placed on a PIP. 30 days to show improvement.",
+  "tags": [
+    "agent",
+    "skill",
+    "plugin",
+    "debugging",
+    "high-agency",
+    "pua",
+    "pip"
+  ],
+  "stars": 19551,
+  "topics": [
+    "agency",
+    "agent",
+    "pua",
+    "pip"
+  ],
+  "license": null,
+  "language": "Shell",
+  "added_via_issue": "17",
+  "added_at": "2026-08-30T03:28:42.445Z"
+}
