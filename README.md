@@ -4,7 +4,7 @@
 
 一个收录开源 Harness 框架相关资源的仓库,涵盖 **Skill / Plugin / Workflow / Template** 四类。
 
-> README 由 GitHub Actions 自动维护。开 [Issue](../../issues/new/choose) 即可提交一个开源资源,机器人会自动开 PR,审核合入后自动收录。
+> README 由 GitHub Actions 自动维护。开 [Issue](../../issues/new/choose) 即可提交一个开源资源,机器人会自动开 PR；仓库所有者本人提交时自动合并，其他投稿审核合入后自动收录。
 
 ## 收录列表
 
@@ -36,7 +36,8 @@
    - 简短描述(中文,1-3 句)
    - 标签 / 关键词(可选)
 4. 提交后,Action 会自动解析、拉取元数据并开一个 PR
-5. 维护者审核通过、合入 PR 后,本 README 的"收录列表"区会自动更新
+5. 仓库所有者本人提交的 Issue 会自动合并；其他投稿由维护者审核合入
+6. PR 合入后,本 README 的"收录列表"区会自动更新
 
 ## 收录结构
 

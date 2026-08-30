@@ -53,6 +53,7 @@ jobs:
         run: node .github/scripts/process-submission.js
 
       - name: 创建 PR
+        id: create_pr
         uses: peter-evans/create-pull-request@v6
         with:
           branch: submission/issue-${{ github.event.issue.number || github.event.inputs.issue_number }}
@@ -87,3 +88,16 @@ jobs:
           delete-branch: true
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+
+      - name: 自动合并仓库所有者的投稿
+        if: >-
+          steps.create_pr.outputs.pull-request-number != '' &&
+          steps.process.outputs.issue_author == github.repository_owner
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.create_pr.outputs.pull-request-number }}
+        run: |
+          gh pr merge "$PR_NUMBER" \
+            --repo "${{ github.repository }}" \
+            --merge \
+            --delete-branch
