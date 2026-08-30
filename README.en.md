@@ -2,7 +2,7 @@
 
 A curated collection of open-source **Harness** resources, across four categories: **Skill / Plugin / Workflow / Template**.
 
-> The README index is auto-maintained by GitHub Actions. Open an [Issue](../../issues/new/choose) to submit an open-source resource — the bot will open a PR, and after review & merge the entry will appear in the index automatically.
+> The README index is auto-maintained by GitHub Actions. Open an [Issue](../../issues/new/choose) to submit an open-source resource — the bot will open a PR. Submissions opened by the repository owner are merged automatically; all others require maintainer review.
 
 ## Index
 
@@ -34,7 +34,8 @@ A curated collection of open-source **Harness** resources, across four categorie
    - Short description (1-3 sentences)
    - Tags / keywords (optional)
 4. After submission, the bot will parse the issue, fetch repo metadata and open a PR automatically
-5. Once a maintainer approves and merges the PR, the index below is regenerated
+5. Issues opened by the repository owner are merged automatically; all others require maintainer review
+6. Once the PR is merged, the index below is regenerated
 
 ## Storage Layout
 

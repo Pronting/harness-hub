@@ -59,5 +59,6 @@ body:
         1. GitHub Actions 自动解析本 Issue,调用 GitHub API 拉取仓库元数据。
         2. 自动创建分支 `submission/issue-<编号>`,在对应类型目录下生成 `README.md` 与 `metadata.json`。
         3. 自动开一个 PR,标题形如 `收录: <owner>/<repo> (Skill)`。
-        4. 维护者人工审核后合入,合入时 PR body 中的 `Closes #<编号>` 会自动关闭本 Issue。
-        5. README(中英双版本)的"收录列表"区由 Action 在 PR 中自动重新生成。
+        4. 仓库所有者本人提交的 Issue 会自动合并;其他投稿仍需维护者人工审核。
+        5. 合入时 PR body 中的 `Closes #<编号>` 会自动关闭本 Issue。
+        6. README(中英双版本)的"收录列表"区由 Action 在 PR 中自动重新生成。
