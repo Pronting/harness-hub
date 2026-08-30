@@ -14,6 +14,7 @@ A curated collection of open-source **Harness** resources, across four categorie
 | [garrytan/gstack](https://github.com/garrytan/gstack) | Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA | Workflow | ⭐ 107.8k ![stars](https://img.shields.io/github/stars/garrytan/gstack?style=social) |
 | [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | DeepSeek Harness: Everything is a Plugin. | Template | ⭐ 106.5k ![stars](https://img.shields.io/github/stars/deepseek-ai/deepseek-harness?style=social) |
 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop  | Skill | ⭐ 34.5k ![stars](https://img.shields.io/github/stars/Leonxlnx/taste-skill?style=social) |
+| [jiji262/humanizer-chinese](https://github.com/jiji262/humanizer-chinese) | 去除中文文本中的AI味,让文字读起来像真人写的。36条中文AI写作模式识别与改写规则(agent skill) | Skill | ⭐ 19 ![stars](https://img.shields.io/github/stars/jiji262/humanizer-chinese?style=social) |
 | [Musenn/contrib-skill](https://github.com/Musenn/contrib-skill) | 代码贡献洞察与项目包装工具 \| Turn Git history into credible, background-check-safe resume material | Skill | ⭐ 3 ![stars](https://img.shields.io/github/stars/Musenn/contrib-skill?style=social) |
 <!-- harness-hub:index:end -->
 
