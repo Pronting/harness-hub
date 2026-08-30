@@ -16,6 +16,7 @@
 | [garrytan/gstack](https://github.com/garrytan/gstack) | Prompt + Tool + Workflow 的组合，通过 plan、review、QA、ship 等 skill，让 AI 分别扮演 Tech Lead、Reviewer、QA、安全审计等工程角色，一个完整的AI-native 开发流程跃然纸上 | Workflow | ⭐ 107.8k ![stars](https://img.shields.io/github/stars/garrytan/gstack?style=social) |
 | [deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) | DeepSeek Harness（dsh）是由 [DeepSeek AI](https://deepseek.com/) 开发的开源 agent harness（智能体框架）。  它采用一切皆插件的架构，并由 [Cordis](https://github.com/cordiverse/cordis) 驱动，其设计参见论文 [A Programming Paradigm for Spatiotem | Template | ⭐ 106.5k ![stars](https://img.shields.io/github/stars/deepseek-ai/deepseek-harness?style=social) |
 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 一个前端审美增强 Skill，通过系统化的 UI/UX 设计规则、布局约束、动效规范与 anti-slop 提示词，控制 AI 生成更高级、更具设计感、去模板化的前端界面输出 | Skill | ⭐ 34.5k ![stars](https://img.shields.io/github/stars/Leonxlnx/taste-skill?style=social) |
+| [jiji262/humanizer-chinese](https://github.com/jiji262/humanizer-chinese) | 一个面向中文写作与编辑场景的去 AI 味 Skill，基于 blader/humanizer 本土化改造，将英文写作模式重组为 36 条中文规则。它可识别并改写宏大开场、讲义腔连接词、互联网黑话、排比堆砌、欧化翻译腔和模板化结尾，同时强调事实保真、语域匹配与防止过度口语化。 | Skill | ⭐ 19 ![stars](https://img.shields.io/github/stars/jiji262/humanizer-chinese?style=social) |
 | [Musenn/contrib-skill](https://github.com/Musenn/contrib-skill) | 读你本地的 Git 仓库,把你真实做过的事还原出来,然后告诉你哪些能写进简历、哪些不能。不吹牛，不瞎编，讲证据 | Skill | ⭐ 3 ![stars](https://img.shields.io/github/stars/Musenn/contrib-skill?style=social) |
 <!-- harness-hub:index:end -->
 
